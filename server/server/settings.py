@@ -1,4 +1,4 @@
-import django_heroku
+
 from pathlib import Path
 
 
@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-!k0g+&8s1+azj)28!151&c)!2x8b8gw#3bduydp**pb#2lwt)(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://control-rede.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -122,5 +122,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-django_heroku.settings(locals())
