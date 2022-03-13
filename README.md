@@ -1,2 +1,2 @@
 # control-rede
-Projeto para listar equipamentos e armazenar suas informações e configurações de rede.
+Projeto para listar equipamentos (computador, notebook, roteador, etc) e armazenar suas informações e configurações de rede.
