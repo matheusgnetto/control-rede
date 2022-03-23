@@ -1,4 +1,5 @@
 # Controle de Rede
 ### Projeto para listar equipamentos (computador, notebook, roteador, etc) e armazenar suas informações e configurações de rede.
 
-![Foto726](https://user-images.githubusercontent.com/100718883/159601264-a5338220-88c2-41fb-989c-052942b0a70f.jpg)
+
+![ControleDeRede](https://user-images.githubusercontent.com/100718883/159601945-0058549a-730b-4430-9084-9945a6d4b05b.png)
