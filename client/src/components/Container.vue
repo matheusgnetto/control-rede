@@ -11,7 +11,7 @@
 
         <div class="mb-3">
         <input type="hidden" v-model="url" class="form-control mt-2" placeholder="url">
-        <th>Identificador</th> <input type="text" style="text-transform:capitalize" v-model="identificador" class="form-control mt-2" required>
+        <th>Andar</th> <input type="text" style="text-transform:capitalize" v-model="identificador" class="form-control mt-2" required>
         <div class="invalid-feedback">
         Campo obrigatório.
         </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="mb-3">
-        <button type="button" @click="postAdrs" class="btn-block btn-primary" id="save">Salvar</button> 
+        <button type="button" @click="postAdrs" class="btn-block btn-danger" id="save">Salvar</button> 
         </div>
       </form>
 
@@ -81,9 +81,9 @@
       <input class="form-control" id="myInput" type="text" placeholder="Procurar...">
     <br>
       <table id="tableAdrs" class="table table-sm table-striped table-bordered ALIGN=center" data-sortable>
-        <thead class="p-3 mb-2 bg-info text-white">
+        <thead class="p-3 mb-2 bg-danger text-white">
           <tr align=center>
-          <th>Identificador</th>
+          <th>Andar</th>
           <th>Equipamento</th>
           <th>Modelo</th>
           <th>IP</th>
@@ -108,10 +108,10 @@
               <button @click="getOne(adrs)" class="btn bn-sm btn-secondary" data-toggle="modal" data-target="#infoModal"><i class="fa fa-book"></i></button>
             </td>
             <td>
-              <button @click="getOne(adrs)" class="btn bn-sm btn-info"><i class="fa fa-pencil"></i></button>
+              <button @click="getOne(adrs)" class="btn bn-sm btn-secondary"><i class="fa fa-pencil"></i></button>
             </td>
             <td>
-               <button @click="deleteOne(adrs)" class="btn bn-sm btn-danger"><i class="fa fa-trash"></i></button>
+               <button @click="confirmDelete(adrs)" class="btn bn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
         </tbody>
@@ -193,8 +193,14 @@ export default {
       this.info = adrs.info;
     },
     
-    deleteOne(adrs){
-      axios.delete(adrs.url,{auth:{
+    confirmDelete(adrs) {
+      const confirmed = window.confirm('Tem certeza que deseja excluir o item selecionado?');
+      if (confirmed) {
+        this.deleteOne(adrs);
+      }
+    },
+    deleteOne(adrs) {
+        axios.delete(adrs.url,{auth:{
         username:'info',
         password:'admin'
       }})
@@ -202,6 +208,16 @@ export default {
         this.getAll();
       })
     },
+
+    // deleteOne(adrs){
+    //   axios.delete(adrs.url,{auth:{
+    //     username:'info',
+    //     password:'admin'
+    //   }})
+    //   .then(()=>{
+    //     this.getAll();
+    //   })
+    // },
     postAdrs(){
       if(this.url == ''){
           axios.post(`http://localhost:8000/adress/`,
