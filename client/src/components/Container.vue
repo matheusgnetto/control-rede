@@ -209,15 +209,7 @@ export default {
       })
     },
 
-    // deleteOne(adrs){
-    //   axios.delete(adrs.url,{auth:{
-    //     username:'info',
-    //     password:'admin'
-    //   }})
-    //   .then(()=>{
-    //     this.getAll();
-    //   })
-    // },
+    
     postAdrs(){
       if(this.url == ''){
           axios.post(`http://localhost:8000/adress/`,
